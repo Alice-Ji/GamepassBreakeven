@@ -25,13 +25,24 @@ function updateCalc() {
   const buyPerHour = totalBuy / (hours * years);
   const subPerHour = totalSub / (hours * years);
 
-  document.getElementById("buyOut").textContent = buyPerHour.toFixed(2);
-  document.getElementById("subOut").textContent = subPerHour.toFixed(2);
-
-  const better = buyPerHour < subPerHour ? "Buying games" : "Subscription";
   const betterEl = document.getElementById("better");
+  let better, color;
+
+  // handle equal case
+  if (buyPerHour === subPerHour) {
+  better = "Equal value";
+  color = "#ffffff"; //
+  } else if (buyPerHour < subPerHour) {
+  better = "Buying games";
+  color = "#00ffff";
+  } else {
+  better = "Subscription";
+  color = "#ff00ff";
+  }
+
   betterEl.textContent = better;
-  betterEl.style.color = better === "Buying games" ? "#00ffff" : "#ff00ff";
+  betterEl.style.color = color;
+
 
   // ======================
   // Update Chart Data
