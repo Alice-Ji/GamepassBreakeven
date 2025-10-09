@@ -28,10 +28,27 @@ function updateCalc() {
   document.getElementById("buyOut").textContent = buyPerHour.toFixed(2);
   document.getElementById("subOut").textContent = subPerHour.toFixed(2);
 
-  const better = buyPerHour < subPerHour ? "Buying games" : "Subscription";
+  // ======================
+  // Better Option Logic (with Equal Case)
+  // ======================
   const betterEl = document.getElementById("better");
+  let better, color;
+
+  const epsilon = 0.01; // tolerance for floating-point rounding
+
+  if (Math.abs(buyPerHour - subPerHour) < epsilon) {
+    better = "Equal value";
+    color = "#ffffff"; // white
+  } else if (buyPerHour < subPerHour) {
+    better = "Buying games";
+    color = "#00ffff"; // cyan
+  } else {
+    better = "Subscription";
+    color = "#ff00ff"; // magenta
+  }
+
   betterEl.textContent = better;
-  betterEl.style.color = better === "Buying games" ? "#00ffff" : "#ff00ff";
+  betterEl.style.color = color;
 
   // ======================
   // Update Chart Data
