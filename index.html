@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>HTML + CSS</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="dashboard">
+      <h1>🎮 Game Value Dashboard</h1>
+
+      <div class="controls">
+        <label>Subscription Price ($/month)</label>
+        <input type="number" id="sub" value="29.99" oninput="updateCalc()" />
+
+        <label>Cost Per Game ($)</label>
+        <input type="number" id="cost" value="60" oninput="updateCalc()" />
+
+        <label>Games Played Per Year</label>
+        <input
+          type="range"
+          id="games"
+          min="1"
+          max="50"
+          value="5"
+          oninput="updateCalc()"
+        />
+        <span id="gamesValue" class="slider-value">5</span>
+
+        <label>Hours Played Per Year</label>
+        <input
+          type="range"
+          id="hours"
+          min="50"
+          max="1000"
+          value="200"
+          oninput="updateCalc()"
+        />
+        <span id="hoursValue" class="slider-value">200</span>
+
+        <label>Years of Play</label>
+        <input type="number" id="years" value="3" oninput="updateCalc()" />
+
+        <button onclick="updateCalc()">Calculate</button>
+      </div>
+
+      <div class="results">
+        <div class="results">
+          <canvas id="amortChart" width="400" height="250"></canvas>
+
+          <div class="result-box">
+            💾 Buy Model: $<span id="buyOut">0.00</span> / hr
+          </div>
+          <div class="result-box">
+            ☁️ Sub Model: $<span id="subOut">0.00</span> / hr
+          </div>
+          <div class="result-box highlight">
+            Better Option: <span id="better">–</span>
+          </div>
+        </div>
+    </div>
+
+    <footer>Powered by caffeine & bad financial decisions ✨</footer>
+    <footer>© 2025 Alice Ji</footer>
+  </body>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="script.js"></script>
+</html>

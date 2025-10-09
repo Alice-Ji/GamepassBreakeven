@@ -1,0 +1,164 @@
+/* ===== Base layout ===== */
+body {
+  font-family: "Orbitron", sans-serif;
+  background: radial-gradient(circle at top left, #1e0033, #000010 60%);
+  color: #e0d6ff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 2rem;
+}
+
+/* ===== Glass panel container ===== */
+.dashboard {
+  background: rgba(30, 0, 50, 0.6);
+  border: 1px solid rgba(255, 0, 255, 0.2);
+  box-shadow: 0 0 40px rgba(255, 0, 255, 0.15);
+  border-radius: 20px;
+  backdrop-filter: blur(8px);
+  padding: 2rem;
+  width: 900px;
+  max-width: 95%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+/* ===== Headings ===== */
+h1 {
+  color: #ff69b4;
+  font-size: 2rem;
+  letter-spacing: 1px;
+  text-shadow: 0 0 10px #ff00ff, 0 0 20px #00ffff;
+  text-align: center;
+  grid-column: span 2;
+}
+
+/* ===== Control panel ===== */
+.controls {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+label {
+  font-size: 0.9rem;
+  opacity: 0.85;
+  margin-bottom: 0.3rem;
+}
+
+/* ===========================
+   Neon Input Field Styling
+   =========================== */
+input[type="number"] {
+  background: rgba(20, 0, 40, 0.6);
+  border: 1px solid rgba(255, 0, 255, 0.4);
+  border-radius: 10px;
+  padding: 0.6rem 0.8rem;
+  color: #e0d6ff;
+  font-family: "Orbitron", sans-serif;
+  font-size: 0.9rem;
+  outline: none;
+  width: 100%;
+  transition: all 0.25s ease;
+  box-shadow: inset 0 0 6px rgba(255, 0, 255, 0.15),
+    0 0 8px rgba(0, 255, 255, 0.05);
+}
+
+/* glowing border + color shift when active */
+input[type="number"]:focus {
+  border-color: #00ffff;
+  box-shadow: 0 0 10px #00ffff, 0 0 20px rgba(255, 0, 255, 0.3),
+    inset 0 0 10px rgba(0, 255, 255, 0.2);
+  background: rgba(0, 0, 40, 0.7);
+}
+
+/* subtle hover highlight */
+input[type="number"]:hover {
+  border-color: #ff00ff;
+  box-shadow: 0 0 10px #ff00ff44;
+}
+
+/* remove spin buttons */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="range"] {
+  width: 100%;
+  accent-color: #ff00ff;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  background: #ff00ff;
+  border: 1px solid #fff;
+}
+
+.slider-value {
+  margin-left: 10px;
+  color: #ff00ff;
+  font-weight: bold;
+  text-shadow: 0 0 5px #ff00ff;
+}
+
+/* ===== Result panel ===== */
+#amortChart {
+  background: radial-gradient(
+    circle at center,
+    rgba(255, 0, 255, 0.1),
+    transparent 70%
+  );
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+}
+
+.results {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: rgba(10, 0, 20, 0.6);
+  border-radius: 15px;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.result-box {
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  text-shadow: 0 0 6px #00ffff;
+}
+
+.highlight {
+  color: #00ffff;
+  font-weight: bold;
+}
+
+/* ===== Buttons ===== */
+button {
+  background: linear-gradient(90deg, #ff00ff, #00ffff);
+  border: none;
+  color: white;
+  font-family: "Orbitron", sans-serif;
+  padding: 0.7rem 1.2rem;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  transition: transform 0.2s ease, box-shadow 0.3s;
+}
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 15px #ff00ff;
+}
+
+/* ===== Neon footer line ===== */
+footer {
+  margin-top: 2rem;
+  color: #999;
+  font-size: 0.8rem;
+  text-shadow: 0 0 6px #ff00ff;
+}
